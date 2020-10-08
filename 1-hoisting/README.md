@@ -1,7 +1,7 @@
 For the given code below:
 
 - create the execution context diagram
-- re-write the code in ways that system will understand/interprete
+- re-write the code in ways that system will understand/Interpret
 
 1.
 
@@ -19,7 +19,7 @@ let message = sayHello(username);
 var nextMessage = sayHello('Test');
 ```
 ![Answer](./images/1.jpg)
-### Interprete
+### Interpret
 
 ```js
 
@@ -63,7 +63,7 @@ var nextMessage = sayHello('Test');
 
 ![Answer](./images/2.png)
 
-### Interprete
+### Interpret
 
 ```js
 
@@ -100,7 +100,7 @@ var nextMessage = sayHello('Test');
 ```
 ![Answer](./images/3.png)
 
-### Interprete
+### Interpret
 
 ```js
 
@@ -136,7 +136,7 @@ var nextMessage = sayHello('Test');
 ```
 ![Answer](./images/4.png)
 
-### Interprete
+### Interpret
 
 ```js
 
@@ -165,7 +165,7 @@ let age = 21;
 ```
 ![Answer](./images/5.png)
 
-### Interprete
+### Interpret
 
 ```js
 
@@ -193,7 +193,7 @@ sayHi();
 ```
 ![Answer](./images/6.png)
 
-### Interprete
+### Interpret
 
 ```js
 function sayHi(name) {
@@ -223,7 +223,7 @@ function sayHi(name) {
 ```
 ![Answer](./images/6(1).png)
 
-### Interprete
+### Interpret
 
 ```js
 // function declration get hosited in decalration phase
@@ -260,7 +260,7 @@ let sayHi = function sayHi(name) {
 ```
 ![Answer](./images/7.png)
 
-### Interprete
+### Interpret
 
 ```js
 let sayHi;
@@ -277,7 +277,7 @@ let num2 = 30;
 ```
 ![Answer](./images/8.png)
 
-### Interprete
+### Interpret
 
 ```js
 let num1;
@@ -308,7 +308,7 @@ let sum = add(num1, num2, 4, 5, 6);
 
 ![Answer](./images/9.png)
 
-### Interprete
+### Interpret
 
 ```js
 
@@ -344,7 +344,7 @@ let add = (a, b) => {
 ```
 ![Answer](./images/10.png)
 
-### Interprete
+### Interpret
 
 ```js
 function test(a) {
@@ -375,7 +375,7 @@ function add(a, b) {
 ```
 ![Answer](./images/11.png)
 
-### Interprete
+### Interpret
 
 ```js
 function test(a) {
