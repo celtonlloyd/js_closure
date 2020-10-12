@@ -42,58 +42,66 @@ function forEach(array, callback) {
 
 //Extension 1
 function mapWith(array, callback) {
-    return forEach;
+  const resulted = [];
+  forEach(array, (e, i, a) => resulted.push(callback(e, i, a)));
+  return resulted;
 }
+
+console.log(mapWith([1, 2, 3], addTwo));
 
 //Extension 2
 function reduce(array, callback, initialValue) {
-  let result = initialValue;
+  let acc = initialValue;
   forEach(array, (e) => {
-    result = callback(result, e);
+    acc = callback(acc, e);
   });
-  return result;
+  return acc;
 }
 
 //Extension 3
-function intersection(arrays) {}
+
 function intersection(...arrays) {
-  return reduce(
-    arrays[0],
-    (acc, c) => {
-      const avabilityArr = [];
-      forEach(arrays, (e) => {
-        if (e.includes(c)) {
-          avabilityArr.push(true);
-        } else {
-          avabilityArr.push(false);
-        }
-      });
-      if (avabilityArr.every((test) => test == true)) {
-        acc.push(c);
-      }
-      return acc;
-    },
-    []
-  );
+  return reduce(arrays, (acc, cv) => {
+    acc = cv.filter((e) => acc.includes(e));
+    return acc;
+  });
 }
 
 // console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
 // should log: [5, 15]
 
 //Extension 4
-function union(arrays) {}
+function union(...arrays) {
+  return reduce(arrays, (acc, cv) => {
+    return acc.concat(...cv.filter((e) => !acc.includes(e)));
+  });
+}
 
 // console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 //Extension 5
-function objOfMatches(array1, array2, callback) {}
+function objOfMatches(array1, array2, callback) {
+  const obj = {};
+  forEach(array1, (e, i) => {
+    if (e.toUpperCase() == array2[i]) {
+      obj[e] = callback(e);
+    }
+  });
+  return obj;
+}
 
 // console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 //Extension 6
-function multiMap(arrVals, arrCallbacks) {}
+function multiMap(arrVals, arrCallbacks) {
+  const obj = {};
+  forEach(arrVals, (e) => {
+    obj[e] = mapWith(arrCallbacks, (fn) => fn(e));
+  });
+  return obj;
+}
 
 // console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
 // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
