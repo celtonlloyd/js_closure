@@ -1,24 +1,38 @@
 // Challenge 1
 function addTwo(num) {}
-
+function addTwo(n) {
+  return n + 2;
+}
 // To check if you've completed it, uncomment these console.logs!
 // console.log(addTwo(3));
 // console.log(addTwo(10));
 
 // Challenge 2
-function addS(word) {}
+function addS(word) {
+    return word + "s";
+}
 
 // uncomment these to check your work
 // console.log(addS('pizza'));
 // console.log(addS('bagel'));
 
 // Challenge 3
-function map(array, callback) {}
 
-// console.log(map([1, 2, 3], addTwo));
+function map(array, cb) {
+  let arr = [];
+  for (let i = 0; i < array.length; i++) {
+    arr.push(cb(array[i], i, array));
+  }
+  return arr;
+}
+ console.log(map([1, 2, 3], addTwo));
 
 // Challenge 4
-function forEach(array, callback) {}
+function forEach(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+      callback(array[i], i, array);
+    }
+}
 
 // see for yourself if your forEach works!
 
@@ -27,13 +41,41 @@ function forEach(array, callback) {}
 //--------------------------------------------------
 
 //Extension 1
-function mapWith(array, callback) {}
+function mapWith(array, callback) {
+    return forEach;
+}
 
 //Extension 2
-function reduce(array, callback, initialValue) {}
+function reduce(array, callback, initialValue) {
+  let result = initialValue;
+  forEach(array, (e) => {
+    result = callback(result, e);
+  });
+  return result;
+}
 
 //Extension 3
 function intersection(arrays) {}
+function intersection(...arrays) {
+  return reduce(
+    arrays[0],
+    (acc, c) => {
+      const avabilityArr = [];
+      forEach(arrays, (e) => {
+        if (e.includes(c)) {
+          avabilityArr.push(true);
+        } else {
+          avabilityArr.push(false);
+        }
+      });
+      if (avabilityArr.every((test) => test == true)) {
+        acc.push(c);
+      }
+      return acc;
+    },
+    []
+  );
+}
 
 // console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
 // should log: [5, 15]
