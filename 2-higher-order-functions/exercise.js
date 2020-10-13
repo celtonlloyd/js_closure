@@ -53,7 +53,7 @@ function mapWith(array, callback) {
 console.log(mapWith([1, 2, 3], addTwo));
 
 //Extension 2
-ffunction reduce(array, callback, initialValue) {
+function reduce(array, callback, initialValue) {
     let acc = initialValue;
     array.forEach(element => {
        acc = callback(acc,element);
