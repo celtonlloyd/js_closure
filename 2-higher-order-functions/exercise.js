@@ -9,7 +9,7 @@ function addTwo(n) {
 
 // Challenge 2
 function addS(word) {
-    return word + "s";
+  return word + "s";
 }
 
 // uncomment these to check your work
@@ -26,7 +26,7 @@ function map(array, callback) {
   }
   return finalArray;
 }
- console.log(map([1, 2, 3], addTwo));
+console.log(map([1, 2, 3], addTwo));
 
 // Challenge 4
 function forEach(array, callback) {
@@ -54,11 +54,11 @@ console.log(mapWith([1, 2, 3], addTwo));
 
 //Extension 2
 function reduce(array, callback, initialValue) {
-    let acc = initialValue;
-    array.forEach(element => {
-       acc = callback(acc,element);
-    });
-    return acc;
+  let acc = initialValue;
+  array.forEach((element) => {
+    acc = callback(acc, element);
+  });
+  return acc;
 }
 
 //Extension 3
