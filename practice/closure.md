@@ -36,7 +36,7 @@ function isInBetween(a, b) {
   }
   return closed;
 }
-}
+
 
 const isChild = isInBetween(10, 100);
 isChild(21); // true
@@ -49,8 +49,8 @@ isChild(103); // false
 ```js
 function letsWishThem(greeting) {
   // your code goes here
-    function result(str) {
-    return greeting + " " + str;
+    function result(message) {
+    return greeting + " " + message;
   };
 
   return result;
@@ -66,14 +66,14 @@ callWithHello("How Are You?"); // Hello How Are You?
 5. Write a function called `addGame` which takes a string (name of the game) and returns a function calling that will increment the score by one and print something like `Score of Basketball is 1`.
 
 ```js
-function addGame(gameName) {
+function addGame(game) {
   // your code goes here
     score = 0;
-  const myFunc = () => {
+  const gameScore = () => {
     score++;
-    console.log(`Your score of ${gameName} is ${score}`);
+    console.log(`Your score of ${game} is ${score}`);
   };
-  return myFunc;
+  return gameScore;
 
 }
 

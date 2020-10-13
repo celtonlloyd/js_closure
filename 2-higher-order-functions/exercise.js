@@ -18,20 +18,22 @@ function addS(word) {
 
 // Challenge 3
 
-function map(array, cb) {
-  let arr = [];
+function map(array, callback) {
+  let finalArray = [];
   for (let i = 0; i < array.length; i++) {
-    arr.push(cb(array[i], i, array));
+    const element = array[i];
+    finalArray.push(callback(element));
   }
-  return arr;
+  return finalArray;
 }
  console.log(map([1, 2, 3], addTwo));
 
 // Challenge 4
 function forEach(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-      callback(array[i], i, array);
-    }
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    callback(element);
+  }
 }
 
 // see for yourself if your forEach works!
@@ -42,20 +44,21 @@ function forEach(array, callback) {
 
 //Extension 1
 function mapWith(array, callback) {
-  const resulted = [];
-  forEach(array, (e, i, a) => resulted.push(callback(e, i, a)));
-  return resulted;
+  let finalArray = [];
+  array.forEach((element) => {
+    finalArray.push(callback(element));
+  });
+  return finalArray;
 }
-
 console.log(mapWith([1, 2, 3], addTwo));
 
 //Extension 2
-function reduce(array, callback, initialValue) {
-  let acc = initialValue;
-  forEach(array, (e) => {
-    acc = callback(acc, e);
-  });
-  return acc;
+ffunction reduce(array, callback, initialValue) {
+    let acc = initialValue;
+    array.forEach(element => {
+       acc = callback(acc,element);
+    });
+    return acc;
 }
 
 //Extension 3
